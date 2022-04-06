@@ -36,7 +36,7 @@ void setup()
 
   pinMode(inPin, INPUT);  //set the ne555 as an input
 
-  Serial.begin(57600);
+  Serial.begin(9600);
   while (!Serial);
 
 }
@@ -49,6 +49,8 @@ void loop()
   duration2 = pulseIn(inPin, LOW);  //Reads a pulse on ne555
   dc = float (duration1)/(duration1 + duration2) * 100;
   freq = float (1/((0.000001*duration1)+(0.000001*duration2)));
+  Serial.print("inPin "); 
+  Serial.println(digitalRead(inPin));
 
   Serial.print("Duty cycle: ");
 
@@ -69,7 +71,7 @@ void loop()
 
   Serial.println();  //print an blank on serial monitor
 
-  delay(500); 
+  delay(10); 
 //wait for 500 microseconds
 
 }
