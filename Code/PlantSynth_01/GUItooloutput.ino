@@ -3,6 +3,7 @@
 #include <SPI.h>
 #include <SD.h>
 #include <SerialFlash.h>
+#include <Bounce2.h>
 
 // GUItool: begin automatically generated code
 AudioSynthWaveform       waveform12;     //xy=720,847
@@ -105,6 +106,11 @@ unsigned long duration1;
 unsigned long duration2; 
 int plantPin = 5;
 float scaleNum = 0.0;
+
+//Bitcrusher Global 
+float updatebits; 
+Button button = Button();
+volatile int ledState = LOW;
 
 //Global Piano Setup 
   const byte sensorPin1 = A1; 
