@@ -2,6 +2,7 @@
 #include "PlantSynth_Piano.h"
 #include "PlantSynth_AstableMultivibrator.h"
 #include "PlantSynth_bitcrusher.h"
+#include "Knobclass.h"
 
 void setup() {
   // put your setup code here, to run once:
@@ -22,6 +23,10 @@ newpiano.pianoSetup();
 
 PlantSynthPlant newplant; 
 newplant.plantSetup();
+
+Knobclass newknob; 
+newknob.setupKnob(10);
+
 
 
 }

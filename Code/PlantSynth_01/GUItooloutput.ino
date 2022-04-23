@@ -101,6 +101,7 @@ AudioControlSGTL5000     sgtl5000_1; //xy=742,296
 
 //Global Plant Setup
 float plantfreq = 0.0;
+float plantfreqOrigin = 0.0;
 float plantdc = 0.0; 
 unsigned long duration1;  
 unsigned long duration2; 
@@ -111,6 +112,13 @@ float scaleNum = 0.0;
 float updatebits; 
 Button button = Button();
 volatile int ledState = LOW;
+
+//Knob class 
+int readIndex = 0; 
+const int numReadings = 0; 
+int knobInputPin = 0; 
+int readings[numReadings];
+
 
 //Global Piano Setup 
   const byte sensorPin1 = A1; 

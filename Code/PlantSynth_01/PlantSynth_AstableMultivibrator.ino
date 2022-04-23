@@ -1,5 +1,6 @@
 #include "Arduino.h" 
 #include "PlantSynth_AstableMultivibrator.h"
+#include "Knobclass.h"
 #include <Bounce2.h>
 
 #define KNOB_PIN A19
@@ -15,14 +16,14 @@ void PlantSynthPlant::plantSetup(){
 
 void scaleKnob(){
 scaleNum = (((analogRead(KNOB_PIN)) - 1.0 ) * ( 1000 - 0.0 ) / (1023 - 1) + 0.0);
-Serial.println(scaleNum);
 }
 
 void getFreq(){
   duration1 = pulseIn(plantPin, HIGH);  //Reads a pulse on timer
   duration2 = pulseIn(plantPin, LOW);  //Reads a pulse on timer
   plantdc = float (duration1)/(duration1 + duration2) * 100; 
-  plantfreq = float (1/((0.000001*duration1)+(0.000001*duration2))) * scaleNum;
+  plantfreqOrigin = float (1/((0.000001*duration1)+(0.000001*duration2)));
+  plantfreq = plantfreqOrigin * scaleNum; 
   delay(1);
 }
 
