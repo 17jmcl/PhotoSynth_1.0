@@ -13,6 +13,8 @@ class PlantSynthPlant
       void modFX1();
       void modFX2();
       void scaleKnob();
+      void knobSetup();
+      void smoothKnob();
 };
 
 #endif

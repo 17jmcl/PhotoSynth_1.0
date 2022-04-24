@@ -1,5 +1,6 @@
 #include "Arduino.h" 
 #include "PlantSynth_Piano.h"
+#include "PlantSynth_AstableMultivibrator.h"
 
 // setup piano sensors 
 void PlantSynthPiano::pianoSetup(){
@@ -9,37 +10,39 @@ setPianoHz();
 
 // instantiate all piano key mixer gains to 0.3 
 void PlantSynthPiano::mixGainSetup(){
-mixer7.gain(0,0.3);
-mixer8.gain(0,0.3);
-mixer9.gain(0,0.3);
-mixer11.gain(0,0.3);
+for (int i=0; i<4; i++){
+mixer10.gain(i,0.3);
+mixer8.gain(i,0.3);
+mixer9.gain(i,0.3);
+mixer11.gain(i,0.3);
+}
 };
 
 //set piano keys by Hz 
 void PlantSynthPiano::setPianoHz(){
-waveformMod1.begin(0.0,493.88,WAVEFORM_TRIANGLE);
+waveformMod1.begin(0.0,493.88,WAVEFORM_PULSE);
 
-waveformMod2.begin(0.0,261.63,WAVEFORM_TRIANGLE);
+waveformMod2.begin(0.0,261.63,WAVEFORM_PULSE);
 
-waveformMod3.begin(0.0,277.18,WAVEFORM_TRIANGLE);
+waveformMod3.begin(0.0,277.18,WAVEFORM_PULSE);
 
-waveformMod4.begin(0.0,293.66,WAVEFORM_TRIANGLE);
+waveformMod4.begin(0.0,293.66,WAVEFORM_PULSE);
 
-waveformMod5.begin(0.0,311.13,WAVEFORM_TRIANGLE);
+waveformMod5.begin(0.0,311.13,WAVEFORM_PULSE);
 
-waveformMod6.begin(0.0,329.63,WAVEFORM_TRIANGLE);
+waveformMod6.begin(0.0,329.63,WAVEFORM_PULSE);
 
-waveformMod7.begin(0.0,349.23,WAVEFORM_TRIANGLE);
+waveformMod7.begin(0.0,349.23,WAVEFORM_PULSE);
 
-waveformMod8.begin(0.0,369.99,WAVEFORM_TRIANGLE);
+waveformMod8.begin(0.0,369.99,WAVEFORM_PULSE);
 
-waveformMod9.begin(0.0,392.00,WAVEFORM_TRIANGLE);
+waveformMod9.begin(0.0,392.00,WAVEFORM_PULSE);
 
-waveformMod10.begin(0.0,415.30,WAVEFORM_TRIANGLE);
+waveformMod10.begin(0.0,415.30,WAVEFORM_PULSE);
 
-waveformMod11.begin(0.0,440,WAVEFORM_TRIANGLE);
+waveformMod11.begin(0.0,440,WAVEFORM_PULSE);
 
-waveformMod12.begin(0.0,466.16,WAVEFORM_TRIANGLE);
+waveformMod12.begin(0.0,466.16,WAVEFORM_PULSE);
 };
 
 //playKey 
@@ -47,7 +50,8 @@ void playKey(){
 
 sensorVal12 = analogRead(sensorPin12);
  if (sensorVal12 > 300){
-  waveformMod1.amplitude(0.7);
+  waveformMod1.amplitude(0.5);
+  waveformMod1.frequency(493.88* plantfreq);
 }
 else{
   waveformMod1.amplitude(0.0);

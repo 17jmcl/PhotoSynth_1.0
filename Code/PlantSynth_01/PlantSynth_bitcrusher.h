@@ -7,10 +7,6 @@
 class bitCrusher
 {
       public:
-      void bitCrusherSetup();
-      void bitCrusherMix();
-      void bitCrusherButton();
-      void bitCrusherLed();
       void updatebitcrush();
       void buttonpress();
       float updateknob(float x);
