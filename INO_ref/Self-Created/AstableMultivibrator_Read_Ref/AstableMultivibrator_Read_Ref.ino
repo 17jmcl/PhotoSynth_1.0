@@ -18,7 +18,8 @@ void loop()
 
 -------
 */
-int inPin = 3;  //attach to the third pin of NE555
+int led = 26;
+int inPin = 5;  //attach to the third pin of NE555
 
 unsigned long
 duration1;  //the variable to store the
@@ -35,6 +36,7 @@ void setup()
 {
 
   pinMode(inPin, INPUT);  //set the ne555 as an input
+  pinMode(led, OUTPUT);
 
   Serial.begin(9600);
   while (!Serial);
@@ -44,8 +46,9 @@ void setup()
 void loop()
 
 {
-
+  digitalWrite(led, HIGH);
   duration1 = pulseIn(inPin, HIGH);  //Reads a pulse on ne555
+  digitalWrite(led, LOW);
   duration2 = pulseIn(inPin, LOW);  //Reads a pulse on ne555
   dc = float (duration1)/(duration1 + duration2) * 100;
   freq = float (1/((0.000001*duration1)+(0.000001*duration2)));

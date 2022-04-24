@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2022-04-07T07:51:27Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.7.0"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "Electronics Design_PlantSynth v67"
+        },
+        "Owner": "Julie McLaughlin <tug96157@temple.edu>",
+        "Size": {
+            "X": 221,
+            "Y": 118
+        }
+    }
+}
