@@ -16,14 +16,15 @@ mixer3.gain(0,0.9);
 waveformMod1.amplitude(0.7);
 
 //setup Piano
+PlantSynthKnob newknob; 
+newknob.knobSetup(10);
+
 PlantSynthPiano newpiano;
 newpiano.pianoSetup();
 
 PlantSynthPlant newplant; 
 newplant.plantSetup();
 
-PlantSynthKnob newknob; 
-newknob.knobSetup(10);
 
 //bitcrush effect setup 
 mixer1.gain(0,0.0); 

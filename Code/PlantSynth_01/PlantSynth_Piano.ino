@@ -45,8 +45,49 @@ waveformMod11.begin(0.0,440,WAVEFORM_PULSE);
 waveformMod12.begin(0.0,466.16,WAVEFORM_PULSE);
 };
 
+int currWave(){
+int knobVal = analogRead(A18);
+if (knobVal <= 255 && knobVal >= 0){
+return WAVEFORM_SINE; 
+}
+else if (knobVal <= 510 && knobVal > 255){
+return WAVEFORM_SQUARE;
+}
+else if (knobVal <= 765 && knobVal > 510){
+return WAVEFORM_TRIANGLE_VARIABLE;
+}
+else{
+return WAVEFORM_PULSE;
+}
+}
+
 //playKey 
 void playKey(){
+int x=0; 
+x = currWave();
+waveformMod1.begin(x);
+
+waveformMod2.begin(x);
+
+waveformMod3.begin(x);
+
+waveformMod4.begin(x);
+
+waveformMod5.begin(x);
+
+waveformMod6.begin(x);
+
+waveformMod7.begin(x);
+
+waveformMod8.begin(x);
+
+waveformMod9.begin(x);
+
+waveformMod10.begin(x);
+
+waveformMod11.begin(x);
+
+waveformMod12.begin(x);
 
 sensorVal12 = analogRead(sensorPin12);
  if (sensorVal12 > 300){

@@ -43,6 +43,7 @@ void getFreq(){
   scaleNum3 = scaleKnob3();
   tremeloplant = (plantdc/80)*.05*scaleNum*10000; 
   plantfreq = plantfreqOrigin * scaleNum; 
+  Serial.println(plantfreqOrigin);
   delay(1);
 }
 

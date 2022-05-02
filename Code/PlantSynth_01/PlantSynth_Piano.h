@@ -12,6 +12,7 @@ class PlantSynthPiano
       void setPianoHz();
       void setWaveForm();
       void playKey();
+      int currWave();
 };
 
 #endif

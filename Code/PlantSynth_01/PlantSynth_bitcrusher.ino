@@ -21,7 +21,6 @@ void updatebitcrush(){
   mixer3.gain(1,0.2);
   mixer3.gain(0,0.8);
   //TURN ON VERB 
-  Serial.println(k); 
   }
   else{
     mixer1.gain(0,0.0);
@@ -31,7 +30,6 @@ void updatebitcrush(){
 
 void buttonpress(){
   if ( button1.pressed() ) {
-    Serial.println("PRESS");
     ledState = !ledState;
     digitalWrite(LED_PIN2,ledState);
 }
@@ -40,7 +38,6 @@ void buttonpress(){
 float updateknob2(float y){ 
     float result1; 
     result1 = -((((analogRead(KNOB_PIN2))*scaleNum2) - 1.0) * (16 - 1) / (1023 - 1) + 0.0)*100;
-    Serial.println(result1);
     return result1;
     }
 
